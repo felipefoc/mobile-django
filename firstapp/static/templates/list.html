@@ -1,0 +1,41 @@
+{% extends 'templates/base.html' %}
+
+{% block css %}
+small {
+    font-size: 50%;
+}
+p {
+    margin-top: -20px;
+}
+table {
+    text-align: center;
+    width: 100%;
+    font-size: 21px;
+}
+td {
+    width: 50%;
+}
+
+{% endblock css %}
+
+
+{% block content %}
+<h2>Organizartions from<h2>
+<p><small>instruct-api-teste.herokuapp.com/api/orgs/</small></p>
+{% for org in allOrgs %}
+ <table class="table table-bordered">
+  <tr>
+    <td>Login</td>
+    <td>{{ org.login }}</td>
+  </tr>
+  <tr>
+    <td>Name</td>
+    <td>{{ org.name }}</td>
+  </tr>
+  <tr>
+    <td>Score</td>
+    <td>{{ org.score }}</td>
+  </tr>
+</table> 
+{% endfor %}
+{% endblock content %}
