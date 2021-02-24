@@ -1,10 +1,31 @@
 {% extends 'templates/base.html' %}
 
 {% block content %}
-<h1>Found!</h1>
-<br>
-<p> Login : <strong>{{ data.login }}</strong></p>
-<p> Name : <strong>{{ data.name }}</strong></p>
-<p> Score : <strong>{{ data.score }}</strong></p>
+    {% if error %}
 
+    <script>
+        let name = '"{{org}}"'
+        function openAlert(){
+            Swal.fire(
+                'Error',
+                'Org ' + name +' does not exist',
+                'error'
+            )
+        }
+        openAlert();
+    </script>
+
+    <h1>Not Found ! {{org|capfirst}}<h1>
+    <br>
+    <a href='{% url 'getPage' %}'<p>Try again with a valid name!</p></a>
+
+    {% else %}
+
+        <h1>Found!</h1>
+        <br>
+        <p> Login : <strong>{{ data.login }}</strong></p>
+        <p> Name : <strong>{{ data.name }}</strong></p>
+        <p> Score : <strong>{{ data.score }}</strong></p>
+
+    {% endif %}
 {% endblock content %}

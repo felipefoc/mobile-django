@@ -55,7 +55,7 @@ ROOT_URLCONF = 'mobile.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [ f'..//webview-mobile-django//firstapp//static',],
+        'DIRS': [ f'../mobile/firstapp/static',],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
