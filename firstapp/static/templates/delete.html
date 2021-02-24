@@ -1,0 +1,29 @@
+{% extends 'templates/base.html' %}
+
+{% block content %}
+<h1>What's the login to delete ?</h1><br>
+ <form method='POST'>
+  {% csrf_token %}
+  <input type="text" id="inputfield" name="input"><br><br>
+  <input type="submit" value="Enviar"><br><br>
+</form> 
+
+{% if error %}
+<script>
+function openAlert(){
+    Swal.fire(
+        'Error',
+        'This org does not exist',
+        'error'
+    )
+}
+openAlert();
+</script>
+{% endif %}
+
+{% endblock content %}
+
+
+{% block script %}
+
+{% endblock script %}

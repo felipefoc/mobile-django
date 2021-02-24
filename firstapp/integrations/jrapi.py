@@ -16,7 +16,10 @@ class JrApi:
         """
         return requests.get(f"{self.API_URL}{org}").json()
 
-    
+    def delete_org(self, org):
+        """
+        """
+        return requests.delete(f"{self.API_URL}{org}")
 
     
 

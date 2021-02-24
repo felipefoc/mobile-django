@@ -3,6 +3,7 @@ from firstapp.integrations.jrapi import JrApi
 
 
 
+
 api = JrApi()
 
 def homePage(request):
@@ -31,3 +32,15 @@ def get(request, org):
                'data': data}
     return render(request, 'templates/org.html', context)
 
+def delete(request, error=False):
+    org = request.POST.get('input', False)
+    if request.method == 'POST':        
+        data = api.delete_org(org=org)
+        if data.status_code == 404:
+            error = True
+        else:
+            return redirect('listPage')
+    page = 'delPage'
+    context = {'page': page,
+               'error': error}
+    return render(request, 'templates/delete.html', context)
